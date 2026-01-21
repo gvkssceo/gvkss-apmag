@@ -58,41 +58,66 @@ document.querySelectorAll('.counter').forEach(counter => {
 
 // Auto-scroll Testimonials
 let testimonialIndex = 0;
-const testimonialsContainer = document.getElementById('testimonialsContainer');
-const testimonialSlides = document.querySelectorAll('#testimonialsContainer > div');
-const testimonialIndicators = document.querySelectorAll('.testimonial-indicator');
+let testimonialInterval = null;
 
-function updateTestimonials() {
-    const translateX = -testimonialIndex * 100;
-    testimonialsContainer.style.transform = `translateX(${translateX}%)`;
-    
-    // Update indicators
+function initTestimonials() {
+    const testimonialsContainer = document.getElementById('testimonialsContainer');
+    const testimonialSlides = document.querySelectorAll('#testimonialsContainer > div');
+    const testimonialIndicators = document.querySelectorAll('.testimonial-indicator');
+
+    if (!testimonialsContainer || testimonialSlides.length === 0) {
+        return;
+    }
+
+    function updateTestimonials() {
+        const translateX = -testimonialIndex * 100;
+        testimonialsContainer.style.transform = `translateX(${translateX}%)`;
+        
+        // Update indicators
+        testimonialIndicators.forEach((indicator, index) => {
+            if (index === testimonialIndex) {
+                indicator.classList.remove('bg-gray-300', 'hover:bg-gray-400');
+                indicator.classList.add('bg-cyan-600');
+            } else {
+                indicator.classList.remove('bg-cyan-600');
+                indicator.classList.add('bg-gray-300', 'hover:bg-gray-400');
+            }
+        });
+    }
+
+    // Add click handlers to indicators
     testimonialIndicators.forEach((indicator, index) => {
-        if (index === testimonialIndex) {
-            indicator.classList.remove('bg-gray-300');
-            indicator.classList.add('bg-cyan-600');
-        } else {
-            indicator.classList.remove('bg-cyan-600');
-            indicator.classList.add('bg-gray-300');
+        indicator.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            testimonialIndex = index;
+            updateTestimonials();
+            
+            // Reset auto-scroll timer
+            if (testimonialInterval) {
+                clearInterval(testimonialInterval);
+            }
+            testimonialInterval = setInterval(() => {
+                testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
+                updateTestimonials();
+            }, 6000);
+        });
+    });
+
+    // Auto-scroll every 6 seconds
+    if (testimonialSlides.length > 0) {
+        if (testimonialInterval) {
+            clearInterval(testimonialInterval);
         }
-    });
+        testimonialInterval = setInterval(() => {
+            testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
+            updateTestimonials();
+        }, 6000);
+    }
 }
 
-// Add click handlers to indicators
-testimonialIndicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
-        testimonialIndex = index;
-        updateTestimonials();
-    });
-});
-
-// Auto-scroll every 6 seconds
-if (testimonialSlides.length > 0) {
-    setInterval(() => {
-        testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
-        updateTestimonials();
-    }, 6000);
-}
+// Initialize testimonials when DOM is ready
+document.addEventListener('DOMContentLoaded', initTestimonials);
 
 // Header Scroll Effect
 window.addEventListener('scroll', () => {
