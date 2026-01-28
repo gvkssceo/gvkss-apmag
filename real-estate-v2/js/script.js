@@ -120,14 +120,45 @@ function initTestimonials() {
 document.addEventListener('DOMContentLoaded', initTestimonials);
 
 // Header Scroll Effect
-window.addEventListener('scroll', () => {
+(function() {
     const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-        header.classList.add('shadow-md');
-    } else {
-        header.classList.remove('shadow-md');
-    }
-});
+    if (!header) return;
+
+    // ensure smooth transform transition
+    header.style.willChange = 'transform';
+    header.style.transition = 'transform 300ms ease';
+
+    let lastScroll = window.pageYOffset || document.documentElement.scrollTop;
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        const current = window.pageYOffset || document.documentElement.scrollTop;
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                // shadow toggle (same visual cue as before)
+                if (current > 50) {
+                    header.classList.add('shadow-md');
+                } else {
+                    header.classList.remove('shadow-md');
+                }
+
+                // hide on scroll down, show on scroll up
+                // keep header visible near top
+                if (current > lastScroll && current > 100) {
+                    // scrolling down
+                    header.style.transform = 'translateY(-110%)';
+                } else {
+                    // scrolling up or near top
+                    header.style.transform = 'translateY(0)';
+                }
+
+                lastScroll = current <= 0 ? 0 : current;
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+})();
 
 // Parallax effect for hero section
 window.addEventListener('scroll', () => {
