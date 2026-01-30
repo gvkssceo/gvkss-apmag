@@ -399,7 +399,10 @@
                     with price intelligence and market data</p>
             </div>
 
-            <div class="space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12">
+            <div class="relative">
+                <div class="max-w-5xl mx-auto overflow-hidden">
+                    <div id="propertiesContainer" class="flex transition-transform duration-700 ease-in-out">
+                        <div class="min-w-full px-2 sm:px-3 md:px-3 lg:px-4">
                 <a href="#" class="block property-card group">
                     <div
                         class="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-100 hover:border-gray-200 transition-all duration-300">
@@ -472,6 +475,8 @@
                         </div>
                     </div>
                 </a>
+                        </div>
+                        <div class="min-w-full px-2 sm:px-3 md:px-3 lg:px-4">
 
                 <a href="#" class="block property-card group">
                     <div
@@ -545,6 +550,8 @@
                         </div>
                     </div>
                 </a>
+                        </div>
+                        <div class="min-w-full px-2 sm:px-3 md:px-3 lg:px-4">
 
                 <a href="#" class="block property-card group">
                     <div
@@ -618,6 +625,22 @@
                         </div>
                     </div>
                 </a>
+                        </div>
+                    </div>
+
+                    <!-- Navigation dots -->
+                    <div class="flex justify-center gap-3 mt-8 sm:mt-10 md:mt-12 lg:mt-14">
+                        <button
+                            class="property-indicator w-3 h-3 rounded-full bg-cyan-600 transition-all duration-300 cursor-pointer"
+                            data-index="0"></button>
+                        <button
+                            class="property-indicator w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300 cursor-pointer"
+                            data-index="1"></button>
+                        <button
+                            class="property-indicator w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300 cursor-pointer"
+                            data-index="2"></button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

@@ -119,6 +119,69 @@ function initTestimonials() {
 // Initialize testimonials when DOM is ready
 document.addEventListener('DOMContentLoaded', initTestimonials);
 
+// Auto-scroll Featured Properties (carousel similar to testimonials)
+let propertyIndex = 0;
+let propertyInterval = null;
+
+function initProperties() {
+    const propertiesContainer = document.getElementById('propertiesContainer');
+    const propertySlides = document.querySelectorAll('#propertiesContainer > div');
+    const propertyIndicators = document.querySelectorAll('.property-indicator');
+
+    if (!propertiesContainer || propertySlides.length === 0) {
+        return;
+    }
+
+    function updateProperties() {
+        const translateX = -propertyIndex * 100;
+        propertiesContainer.style.transform = `translateX(${translateX}%)`;
+
+        // Update indicators
+        propertyIndicators.forEach((indicator, index) => {
+            if (index === propertyIndex) {
+                indicator.classList.remove('bg-gray-300', 'hover:bg-gray-400');
+                indicator.classList.add('bg-cyan-600');
+            } else {
+                indicator.classList.remove('bg-cyan-600');
+                indicator.classList.add('bg-gray-300', 'hover:bg-gray-400');
+            }
+        });
+    }
+
+    // Add click handlers to indicators
+    propertyIndicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            propertyIndex = index;
+            updateProperties();
+
+            // Reset auto-scroll timer
+            if (propertyInterval) {
+                clearInterval(propertyInterval);
+            }
+            propertyInterval = setInterval(() => {
+                propertyIndex = (propertyIndex + 1) % propertySlides.length;
+                updateProperties();
+            }, 6000);
+        });
+    });
+
+    // Auto-scroll every 6 seconds
+    if (propertySlides.length > 0) {
+        if (propertyInterval) {
+            clearInterval(propertyInterval);
+        }
+        propertyInterval = setInterval(() => {
+            propertyIndex = (propertyIndex + 1) % propertySlides.length;
+            updateProperties();
+        }, 6000);
+    }
+}
+
+// Initialize properties carousel when DOM is ready
+document.addEventListener('DOMContentLoaded', initProperties);
+
 // Header Scroll Effect
 (function() {
     const header = document.querySelector('header');
