@@ -19,133 +19,27 @@
 <body class="bg-gray-50">
 
     <!-- Header -->
-    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
-        <nav class="container mx-auto px-4 sm:px-5 md:px-6 lg:px-8 py-2 sm:py-2.5 md:py-3">
-            <div class="flex justify-between items-center">
-                <a href="#hero-comp" class="flex items-center space-x-3 sm:space-x-4 md:space-x-4">
-                    <img src="./assets/image.png" alt="RMR Infra & Estates Logo"
-                        class="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-20 xl:h-20 object-contain "
-                        loading="lazy">
-                    <span class="text-gray-900 font-bold text-base sm:text-lg md:text-xl">RMR Infra & Estates</span>
-                </a>
-
-                <div class="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
-                    <a href="#about"
-                        class="text-gray-700 hover:text-cyan-600 transition font-medium text-sm lg:text-base">About</a>
-                    <a href="#ventures"
-                        class="text-gray-700 hover:text-cyan-600 transition font-medium text-sm lg:text-base">Properties</a>
-                    <a href="#contact"
-                        class="text-gray-700 hover:text-cyan-600 transition font-medium text-sm lg:text-base">Contact</a>
-                    <a href="tel:+917441143143"
-                        class="hover:bg-gray-400 hover:text-white text-base px-3 md:px-4 lg:px-6 py-1.5 md:py-2 lg:py-2.5 rounded-xl font-semibold transition text-xs md:text-sm lg:text-base border-2 border-gray-300">
-                        Make a Call
-                    </a>
-                </div>
-
-                <button id="mobileMenuBtn" class="md:hidden text-gray-900 p-2 -mr-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-
-            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 space-y-2">
-                <a href="#about" class="block text-gray-700 py-2 px-2 hover:text-cyan-600 font-medium">About</a>
-                <a href="#ventures" class="block text-gray-700 py-2 px-2 hover:text-cyan-600 font-medium">Properties</a>
-                <a href="#contact" class="block text-gray-700 py-2 px-2 hover:text-cyan-600 font-medium">Contact</a>
-                <a href="tel:+917441143143"
-                    class="block text-base px-4 py-2.5 rounded-xl border-2 border-gray-300 mt-2 text-center font-semibold">Make
-                    a Call</a>
-            </div>
-        </nav>
+    <header id="navbar-container" class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+        <script>
+            fetch('components/nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                });
+        </script>
     </header>
 
     <!-- Promotional Banner Ticker -->
-    <div
+    <div id="promotionalbanner-container"
         class="w-full bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-600 text-white overflow-hidden shadow-md mt-16 sm:mt-24 md:mt-20 lg:mt-24 xl:mt28">
 
-        <div class="promo-banner-container flex items-center">
-            <div
-                class="promo-banner-content flex items-center gap-8 sm:gap-12 md:gap-16 whitespace-nowrap py-2 sm:py-2.5 md:py-3">
-                <!-- Banner Item 1 -->
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-yellow-300" fill="currentColor"
-                        viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-xs sm:text-sm md:text-base font-medium">Exclusive Offers Coming in March - Free
-                        CMA & Reduced Commission Rates</span>
-                </div>
-                <!-- Banner Item 2 -->
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-yellow-300" fill="currentColor"
-                        viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-xs sm:text-sm md:text-base font-medium">Spring Sale: Get Free Professional Staging
-                        Consultation - Limited Time</span>
-                </div>
-                <!-- Banner Item 3 -->
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-yellow-300" fill="currentColor"
-                        viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-xs sm:text-sm md:text-base font-medium">Guaranteed Cash Offers Available - Buy
-                        Before You Sell Program</span>
-                </div>
-                <!-- Banner Item 4 -->
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-yellow-300" fill="currentColor"
-                        viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-xs sm:text-sm md:text-base font-medium">Premium Properties at Special Rates - Book
-                        Your Site Visit Today</span>
-                </div>
-                <!-- Banner Item 5 -->
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-yellow-300" fill="currentColor"
-                        viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-xs sm:text-sm md:text-base font-medium">Home Improvement Incentives: ₹50K Gift
-                        Cards on Property Purchase</span>
-                </div>
-                <!-- Duplicate items for seamless loop -->
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-yellow-300" fill="currentColor"
-                        viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-xs sm:text-sm md:text-base font-medium">Exclusive Offers Coming in March - Free
-                        CMA & Reduced Commission Rates</span>
-                </div>
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-yellow-300" fill="currentColor"
-                        viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-xs sm:text-sm md:text-base font-medium">Spring Sale: Get Free Professional Staging
-                        Consultation - Limited Time</span>
-                </div>
-            </div>
-        </div>
+        <script>
+            fetch('components/promotionalbanner.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('promotionalbanner-container').innerHTML = data;
+                });
+        </script>
     </div>
 
     <!-- Hero Section - Buyer-Focused -->
@@ -158,133 +52,63 @@
         <div
             class="absolute bottom-20 right-10 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000">
         </div>
-
-        <div class="container mx-auto px-4 sm:px-5 md:px-6 lg:px-8 py-2 sm:py-3 md:py-4 lg:py-6 relative z-10">
-            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-stretch">
-                <!-- Left Column - Content -->
-                <div class="fade-up space-y-4 sm:space-y-5 md:space-y-6 flex flex-col">
-                    <h1
-                        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-tight mb-4 sm:mb-5 md:mb-6">
-                        Buy Homes at the Right Price
-                    </h1>
-                    <p
-                        class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 font-normal leading-relaxed max-w-2xl mb-6 sm:mb-8">
-                        Verified listings with real locality price insights.
-                    </p>
-
-                    <!-- CTAs -->
-                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
-                        <a href="#ventures"
-                            class="inline-flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-5 sm:px-6 md:px-7 lg:px-9 py-2.5 sm:py-3 md:py-3.5 lg:py-4.5 rounded-xl text-sm sm:text-base md:text-base lg:text-lg font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 text-center">
-                            Search Verified Homes
-                        </a>
-                        <a href="#about"
-                            class="inline-flex items-center justify-center bg-white hover:bg-gray-50 border-2 border-gray-300 hover:border-cyan-500 text-gray-700 hover:text-cyan-600 px-5 sm:px-6 md:px-7 lg:px-9 py-2.5 sm:py-3 md:py-3.5 lg:py-4.5 rounded-xl text-sm sm:text-base md:text-base lg:text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl text-center">
-                            How It Works
-                        </a>
-                    </div>
-
-                    <!-- Buyer Search Module -->
-                    <div
-                        class="mt-6 sm:mt-8 md:mt-10 p-4 sm:p-5 md:p-6 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-lg space-y-4">
-                        <h3 class="text-base sm:text-lg font-semibold text-gray-900">Find Your Home</h3>
-
-                        <!-- Location Input -->
-                        <div>
-                            <label for="heroLocation" class="sr-only">Location</label>
-                            <input type="text" id="heroLocation" placeholder="Enter city or locality"
-                                class="w-full px-4 py-2.5 sm:py-3 md:py-3 lg:py-3 border-2 border-gray-300 rounded-xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all duration-300 text-sm sm:text-base md:text-base bg-white hover:border-cyan-400" />
-                        </div>
-
-                        <!-- Property Type & Budget Row -->
-                        <div class="grid grid-cols-2 gap-3 sm:gap-4">
-                            <!-- Property Type Select -->
-                            <div>
-                                <label for="heroPropertyType" class="sr-only">Property Type</label>
-                                <select id="heroPropertyType"
-                                    class="w-full px-4 py-2.5 sm:py-3 md:py-3 lg:py-3 border-2 border-gray-300 rounded-xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all duration-300 text-sm sm:text-base md:text-base bg-white cursor-pointer hover:border-cyan-400">
-                                    <option value="">Property Type</option>
-                                    <option value="apartment">Apartment</option>
-                                    <option value="villa">Villa</option>
-                                </select>
-                            </div>
-
-                            <!-- Budget Range Select -->
-                            <div>
-                                <label for="heroBudget" class="sr-only">Budget</label>
-                                <select id="heroBudget"
-                                    class="w-full px-4 py-2.5 sm:py-3 md:py-3 lg:py-3 border-2 border-gray-300 rounded-xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all duration-300 text-sm sm:text-base md:text-base bg-white cursor-pointer hover:border-cyan-400">
-                                    <option value="">Budget Range</option>
-                                    <option value="0-50">₹0 - 50 Lakhs</option>
-                                    <option value="50-100">₹50 Lakhs - 1 Cr</option>
-                                    <option value="100-200">₹1 Cr - 2 Cr</option>
-                                    <option value="200-500">₹2 Cr - 5 Cr</option>
-                                    <option value="500+">₹5 Cr+</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column - Visual Element (Hidden on tablet, shown on desktop) -->
-                <div class="hidden lg:flex h-full">
-                    <div class="relative w-full h-full">
-                        <!-- Decorative elements -->
-                        <div
-                            class="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-3xl opacity-20 blur-2xl">
-                        </div>
-                        <div
-                            class="absolute -bottom-6 -left-6 w-40 h-40 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-3xl opacity-20 blur-2xl">
-                        </div>
-
-                        <!-- Property visualization -->
-                        <div class="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
-                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
-                                alt="Verified Property" class="w-full h-full object-cover" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
-                            </div>
-                            <!-- Verification Badge -->
-                            <div
-                                class="absolute top-4 right-4 bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-2 rounded-full shadow-xl flex items-center gap-2">
-                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <span class="text-xs font-bold text-white">Verified</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- hero component -->
+        <script>
+            fetch('components/hero.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('hero-comp').innerHTML = data;
+                });
+        </script>
     </section>
 
     <!-- Stats Section with Diagonal Cards -->
-    <section class="py-10 sm:py-12 md:py-14 lg:py-16 xl:py-20 bg-white relative overflow-hidden">
+    <section id="stats-section" class="py-10 sm:py-12 md:py-14 lg:py-16 xl:py-20 bg-white relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-cyan-500/10 to-transparent"></div>
-        <div class="container mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
-            <div class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-3 sm:gap-3 md:gap-5 lg:gap-7 xl:gap-8">
-                <div
-                    class="stats-card rounded-2xl p-3 sm:p-4 md:p-5 lg:p-5 xl:p-6 text-center card-zoom transform rotate-1">
-                    <div class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-2 sm:mb-3 counter"
-                        data-target="25">0</div>
-                    <div class="text-gray-600 font-normal text-xs sm:text-sm md:text-base">Years Experience</div>
-                </div>
-                <div
-                    class="stats-card rounded-2xl p-3 sm:p-4 md:p-5 lg:p-5 xl:p-6 text-center card-zoom transform -rotate-1">
-                    <div class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2 sm:mb-3 counter"
-                        data-target="500">0</div>
-                    <div class="text-gray-600 font-normal text-xs sm:text-sm md:text-base">Projects</div>
-                </div>
-                <div
-                    class="stats-card rounded-2xl p-3 sm:p-4 md:p-5 lg:p-5 xl:p-6 text-center card-zoom transform rotate-1">
-                    <div class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2 sm:mb-3 counter"
-                        data-target="10000">0</div>
-                    <div class="text-gray-600 font-normal text-xs sm:text-sm md:text-base">Happy Clients</div>
-                </div>
-            </div>
-        </div>
+        <script>
+            fetch('components/stats.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('stats-section').innerHTML = data;
+
+                    // Animated Counter
+                    function animateCounter(element, target, duration = 2000) {
+                        let start = 0;
+                        const increment = target / (duration / 16);
+                        const timer = setInterval(() => {
+                            start += increment;
+                            if (start >= target) {
+                                element.textContent = target.toLocaleString();
+                                clearInterval(timer);
+                            } else {
+                                element.textContent = Math.floor(start).toLocaleString();
+                            }
+                        }, 16);
+                    }
+
+                    // Intersection Observer for Counters
+                    const observerOptions = {
+                        threshold: 0.5,
+                        rootMargin: '0px'
+                    };
+
+                    const counterObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                                entry.target.classList.add('counted');
+                                const target = parseInt(entry.target.getAttribute('data-target'));
+                                animateCounter(entry.target, target);
+                            }
+                        });
+                    }, observerOptions);
+
+                    document.querySelectorAll('.counter').forEach(counter => {
+                        counterObserver.observe(counter);
+                    });
+                });
+
+
+        </script>
     </section>
 
     <!-- About Section with Asymmetric Layout -->
@@ -390,259 +214,13 @@
 
     <!-- Properties Section with Zigzag Layout -->
     <section id="ventures" class="py-10 sm:py-12 md:py-14 lg:py-16 xl:py-20 bg-white">
-        <div class="container mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
-            <div class="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16 fade-up">
-                <h2
-                    class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-gray-900 mb-4 sm:mb-5 md:mb-6 leading-tight">
-                    Featured Properties</h2>
-                <p class="text-base sm:text-lg md:text-xl text-gray-600 font-normal leading-relaxed">Verified listings
-                    with price intelligence and market data</p>
-            </div>
-
-            <div class="relative">
-                <div class="max-w-5xl mx-auto overflow-hidden">
-                    <div id="propertiesContainer" class="flex transition-transform duration-700 ease-in-out">
-                        <div class="min-w-full px-2 sm:px-3 md:px-3 lg:px-4">
-                <a href="#" class="block property-card group">
-                    <div
-                        class="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-100 hover:border-gray-200 transition-all duration-300">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80"
-                                alt="Hiranandani Residency"
-                                class="w-full h-56 sm:h-64 md:h-72 lg:h-80 xl:h-96 object-cover group-hover:scale-105 transition-transform duration-300">
-                            <div class="absolute top-4 left-4">
-                                <span
-                                    class="bg-cyan-600 text-white px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium">Verified
-                                    Price</span>
-                            </div>
-                        </div>
-                        <div class="p-6 sm:p-8 md:p-10 flex flex-col justify-between">
-                            <div>
-                                <h3
-                                    class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 mb-3 sm:mb-4 leading-tight">
-                                    Hiranandani Residency</h3>
-                                <p
-                                    class="text-sm sm:text-base text-gray-500 font-normal mb-4 sm:mb-5 flex items-center">
-                                    <svg class="w-4 h-4 mr-1.5 text-gray-400 flex-shrink-0" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
-                                        </path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg>
-                                    Powai, Mumbai, Maharashtra
-                                </p>
-                                <div
-                                    class="flex items-center gap-4 sm:gap-6 mb-5 sm:mb-6 text-sm sm:text-base text-gray-600">
-                                    <div class="flex items-center gap-1.5">
-                                        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                                            </path>
-                                        </svg>
-                                        <span class="font-normal">3 BHK</span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5">
-                                        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4">
-                                            </path>
-                                        </svg>
-                                        <span class="font-normal">2,850 sq ft</span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5">
-                                        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M9 7h6m0 10v-5m-6 5h.01M19 10a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <span class="font-normal">₹20,351/sq ft</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">₹5.8 Cr
-                                </div>
-                                <div class="text-sm sm:text-base text-gray-500 font-normal mb-4 sm:mb-5">₹20,351 per sq
-                                    ft</div>
-                                <div
-                                    class="text-sm sm:text-base font-medium text-cyan-600 group-hover:text-cyan-700 transition-colors">
-                                    View Details →</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                        </div>
-                        <div class="min-w-full px-2 sm:px-3 md:px-3 lg:px-4">
-
-                <a href="#" class="block property-card group">
-                    <div
-                        class="grid md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-100 hover:border-gray-200 transition-all duration-300">
-                        <div class="relative overflow-hidden md:order-2">
-                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80"
-                                alt="Cyber City Towers"
-                                class="w-full h-56 sm:h-64 md:h-72 lg:h-80 xl:h-96 object-cover group-hover:scale-105 transition-transform duration-300">
-                            <div class="absolute top-4 left-4">
-                                <span
-                                    class="bg-purple-600 text-white px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium">High
-                                    Demand Area</span>
-                            </div>
-                        </div>
-                        <div class="p-6 sm:p-8 md:p-10 md:pl-6 lg:pl-8 flex flex-col justify-between md:order-1">
-                            <div>
-                                <h3
-                                    class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 mb-3 sm:mb-4 leading-tight">
-                                    Cyber City Towers</h3>
-                                <p
-                                    class="text-sm sm:text-base text-gray-500 font-normal mb-4 sm:mb-5 flex items-center">
-                                    <svg class="w-4 h-4 mr-1.5 text-gray-400 flex-shrink-0" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
-                                        </path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg>
-                                    Gurgaon, Haryana
-                                </p>
-                                <div
-                                    class="flex items-center gap-4 sm:gap-6 mb-5 sm:mb-6 text-sm sm:text-base text-gray-600">
-                                    <div class="flex items-center gap-1.5">
-                                        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                                            </path>
-                                        </svg>
-                                        <span class="font-normal">2 BHK</span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5">
-                                        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M4 8V4m0 0h4m-4 0l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4">
-                                            </path>
-                                        </svg>
-                                        <span class="font-medium">1,800 sq ft</span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5">
-                                        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M9 7h6m0 10v-5m-6 5h.01M19 10a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <span class="font-medium">₹23,333/sq ft</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">₹4.2 Cr
-                                </div>
-                                <div class="text-sm sm:text-base text-gray-500 font-normal mb-4 sm:mb-5">₹23,333 per sq
-                                    ft</div>
-                                <div
-                                    class="text-sm sm:text-base font-medium text-purple-600 group-hover:text-purple-700 transition-colors">
-                                    View Details →</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                        </div>
-                        <div class="min-w-full px-2 sm:px-3 md:px-3 lg:px-4">
-
-                <a href="#" class="block property-card group">
-                    <div
-                        class="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-100 hover:border-gray-200 transition-all duration-300">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
-                                alt="Whitefield Elite"
-                                class="w-full h-56 sm:h-64 md:h-72 lg:h-80 xl:h-96 object-cover group-hover:scale-105 transition-transform duration-300">
-                            <div class="absolute top-4 left-4">
-                                <span
-                                    class="bg-blue-600 text-white px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium">Below
-                                    Market Avg</span>
-                            </div>
-                        </div>
-                        <div class="p-6 sm:p-8 md:p-10 flex flex-col justify-between">
-                            <div>
-                                <h3
-                                    class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 mb-3 sm:mb-4 leading-tight">
-                                    Whitefield Elite</h3>
-                                <p
-                                    class="text-sm sm:text-base text-gray-500 font-normal mb-4 sm:mb-5 flex items-center">
-                                    <svg class="w-4 h-4 mr-1.5 text-gray-400 flex-shrink-0" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
-                                        </path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg>
-                                    Bangalore, Karnataka
-                                </p>
-                                <div
-                                    class="flex items-center gap-4 sm:gap-6 mb-5 sm:mb-6 text-sm sm:text-base text-gray-600">
-                                    <div class="flex items-center gap-1.5">
-                                        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                                            </path>
-                                        </svg>
-                                        <span class="font-normal">4 BHK</span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5">
-                                        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M4 8V4m0 0h4m-4 0l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4">
-                                            </path>
-                                        </svg>
-                                        <span class="font-normal">3,200 sq ft</span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5">
-                                        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M9 7h6m0 10v-5m-6 5h.01M19 10a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <span class="font-medium">₹20,313/sq ft</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">₹6.5 Cr
-                                </div>
-                                <div class="text-sm sm:text-base text-gray-500 font-normal mb-4 sm:mb-5">₹20,313 per sq
-                                    ft</div>
-                                <div
-                                    class="text-sm sm:text-base font-medium text-blue-600 group-hover:text-blue-700 transition-colors">
-                                    View Details →</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                        </div>
-                    </div>
-
-                    <!-- Navigation dots -->
-                    <div class="flex justify-center gap-3 mt-8 sm:mt-10 md:mt-12 lg:mt-14">
-                        <button
-                            class="property-indicator w-3 h-3 rounded-full bg-cyan-600 transition-all duration-300 cursor-pointer"
-                            data-index="0"></button>
-                        <button
-                            class="property-indicator w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300 cursor-pointer"
-                            data-index="1"></button>
-                        <button
-                            class="property-indicator w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300 cursor-pointer"
-                            data-index="2"></button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <script>
+            fetch('components/properties.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('ventures').innerHTML = data;
+                });
+        </script>
     </section>
 
     <!-- Testimonials -->
@@ -966,6 +544,20 @@
                                 placeholder="Enter your email" />
                         </div>
 
+                        <!-- Mobile Number Field -->
+                        <div class="space-y-2">
+                            <label for="mobileNumber"
+                                class="flex items-center gap-2 text-sm sm:text-base font-medium text-gray-700">
+                                <svg class="w-5 h-5 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5H9v14h6V5zM8 3h8a2 2 0 012 2v14a2 2 0 01-2 2H8a2 2 0 01-2-2V5a2 2 0 012-2z" />
+                                </svg>
+                                Mobile Number <span class="text-cyan-600">*</span>
+                            </label>
+                            <input type="tel" id="mobileNumber" name="mobileNumber" required pattern="[0-9]{10}" title="Please enter a 10-digit mobile number"
+                                class="w-full px-4 sm:px-5 py-3 sm:py-3.5 border-2 border-gray-300 rounded-xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all duration-300 text-sm sm:text-base bg-white hover:border-cyan-400"
+                                placeholder="Enter your mobile number" />
+                        </div>
+
                         <!-- Message Field -->
                         <div class="space-y-2">
                             <label for="message"
@@ -1087,7 +679,7 @@
                 <div>
                     <h3 class="text-white font-semibold text-base sm:text-lg mb-4 sm:mb-6">Find Us</h3>
                     <div class="bg-white p-3 sm:p-4 rounded-xl inline-block">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com/?q=Tech+Park,+Sector+62,+Noida,+Uttar+Pradesh+201301"
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.google.com/maps?q=17.607494,78.077553"
                             alt="QR Code" class="w-24 h-24 sm:w-32 sm:h-32">
                     </div>
                     <p class="text-xs sm:text-sm text-gray-400 mt-2 sm:mt-3">Scan for location</p>
