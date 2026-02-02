@@ -4,7 +4,7 @@ const mobileMenu = document.getElementById('mobileMenu');
 
 mobileMenuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
-    // Add ARIA attribute for accessibility
+    
     const isExpanded = !mobileMenu.classList.contains('hidden');
     mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
 });
@@ -21,40 +21,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Animated Counter
-function animateCounter(element, target, duration = 2000) {
-    let start = 0;
-    const increment = target / (duration / 16);
-    const timer = setInterval(() => {
-        start += increment;
-        if (start >= target) {
-            element.textContent = target.toLocaleString();
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(start).toLocaleString();
-        }
-    }, 16);
-}
-
-// Intersection Observer for Counters
-const observerOptions = {
-    threshold: 0.5,
-    rootMargin: '0px'
-};
-
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-            entry.target.classList.add('counted');
-            const target = parseInt(entry.target.getAttribute('data-target'));
-            animateCounter(entry.target, target);
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.counter').forEach(counter => {
-    counterObserver.observe(counter);
-});
 
 // Auto-scroll Testimonials
 let testimonialIndex = 0;
@@ -73,7 +39,7 @@ function initTestimonials() {
         const translateX = -testimonialIndex * 100;
         testimonialsContainer.style.transform = `translateX(${translateX}%)`;
         
-        // Update indicators
+        //  indicators
         testimonialIndicators.forEach((indicator, index) => {
             if (index === testimonialIndex) {
                 indicator.classList.remove('bg-gray-300', 'hover:bg-gray-400');
@@ -85,7 +51,7 @@ function initTestimonials() {
         });
     }
 
-    // Add click handlers to indicators
+    
     testimonialIndicators.forEach((indicator, index) => {
         indicator.addEventListener('click', (e) => {
             e.preventDefault();
@@ -187,7 +153,7 @@ document.addEventListener('DOMContentLoaded', initProperties);
     const header = document.querySelector('header');
     if (!header) return;
 
-    // ensure smooth transform transition
+   
     header.style.willChange = 'transform';
     header.style.transition = 'transform 300ms ease';
 
@@ -295,13 +261,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = {
                 from_name: document.getElementById('fullName').value.trim(),
                 from_email: document.getElementById('email').value.trim(),
+                mobile_number: document.getElementById('mobileNumber').value.trim(),
                 message: document.getElementById('message').value.trim(),
                 to_email: document.getElementById('email').value.trim(), // User's email (for reply-to)
                 reply_to: document.getElementById('email').value.trim() // Reply-to address
             };
             
-            // Validate form data
-            if (!formData.from_name || !formData.from_email || !formData.message) {
+            // Validate form data (require mobile number as well)
+            if (!formData.from_name || !formData.from_email || !formData.mobile_number || !formData.message) {
                 messageDiv.className = 'mb-4 p-4 rounded-xl text-sm sm:text-base font-medium bg-red-100 text-red-800 border-2 border-red-300';
                 messageDiv.textContent = 'Please fill in all required fields.';
                 messageDiv.classList.remove('hidden');
