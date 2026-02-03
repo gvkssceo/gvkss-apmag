@@ -247,6 +247,30 @@ body {
 /* Ensure all containers maintain consistent horizontal padding across all resolutions */
 /* Desktop: 64px, Laptop: 48px, Tablet: 32px, Mobile: 16px-20px */
 
+/* Property carousel chevrons: ensure visibility and interactions */
+.property-prev, .property-next {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 50 !important;
+}
+.property-prev svg, .property-next svg {
+    stroke-width: 2.2;
+}
+
+@media (max-width: 640px) {
+    .property-prev, .property-next {
+        width: 40px !important;
+        height: 40px !important;
+        left: 8px !important;
+        right: 8px !important;
+    }
+}
+
+
+
 /* Base: Mobile (default) - 16px (1rem) */
 .container.mx-auto[class*="px-"],
 header nav.container,

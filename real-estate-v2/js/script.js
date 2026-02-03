@@ -2,12 +2,28 @@
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 
-mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    
-    const isExpanded = !mobileMenu.classList.contains('hidden');
-    mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
-});
+// Some elements are loaded via fetch/includes; guard against null to avoid uncaught errors
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', (e) => {
+        mobileMenu.classList.toggle('hidden');
+        
+        const isExpanded = !mobileMenu.classList.contains('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+    });
+} else {
+    // Fallback: try again after window load (covers late-inserted components)
+    window.addEventListener('load', () => {
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                const isExpanded = !menu.classList.contains('hidden');
+                btn.setAttribute('aria-expanded', isExpanded);
+            });
+        }
+    });
+}
 
 // Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -82,8 +98,9 @@ function initTestimonials() {
     }
 }
 
-// Initialize testimonials when DOM is ready
+// Initialize testimonials when DOM is ready (also run on window load as fallback)
 document.addEventListener('DOMContentLoaded', initTestimonials);
+window.addEventListener('load', initTestimonials);
 
 // Auto-scroll Featured Properties (carousel similar to testimonials)
 let propertyIndex = 0;
@@ -145,8 +162,9 @@ function initProperties() {
     }
 }
 
-// Initialize properties carousel when DOM is ready
+// Initialize properties carousel when DOM is ready (also run on window load as fallback)
 document.addEventListener('DOMContentLoaded', initProperties);
+window.addEventListener('load', initProperties);
 
 // Header Scroll Effect
 (function() {
